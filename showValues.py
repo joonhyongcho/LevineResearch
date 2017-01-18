@@ -52,9 +52,14 @@ def divideThroughXTimes(values, x):
 
 wb = xw.Book('finance.xlsx') 
 
-values = wb.sheets[1].range('B2:H39').value
+values = wb.sheets('rowsum1').range('B2:H39').value
 
-print(divideThroughXTimes(values, 2))
+newValues = divideThroughXTimes(values, 10)
+
+newSheet = wb.sheets('divided')
+
+newSheet.range('B2').value = newValues
+
 
 
 
